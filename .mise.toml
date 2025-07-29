@@ -1,0 +1,13 @@
+[tools]
+node = "20"
+
+[hooks]
+# Enabling corepack will install the package manager specified in your package.json
+postinstall = "npx corepack enable"
+
+[settings]
+# This must be enabled to make the hooks work
+experimental = true
+
+[env]
+_.path = ["./node_modules/.bin"]

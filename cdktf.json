@@ -1,0 +1,9 @@
+{
+  "language": "typescript",
+  "app": "echo noop",
+  "sendCrashReports": false,
+  "terraformProviders": [
+    "registry.terraform.io/terraconstructs/tconsaws@~> 1.0"
+  ],
+  "projectId": "5f3321b9-c61e-4b6e-ac56-7c84fb3667ca"
+}

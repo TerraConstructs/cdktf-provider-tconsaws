@@ -14,7 +14,7 @@ const project = new cdktf.ConstructLibraryCdktf({
   packageName: "@tcons/provider-tconsaws",
   projenrcTs: true,
   repositoryUrl:
-    "https://github.com/TerraConstructs/terraform-provider-tconsaws.git",
+    "https://github.com/TerraConstructs/cdktf-provider-tconsaws.git",
   description:
     "CDKTF bindings for terraform-provider-tconsaws - CloudFormation cfn-signal equivalent functionality using AWS SQS",
   license: "MPL-2.0",

@@ -1,10 +1,10 @@
 # @tcons/provider-tconsaws
 
-CDKTF (Cloud Development Kit for Terraform) bindings for the [terraform-provider-tconsaws](https://github.com/TerraConstructs/terraform-provider-tconsaws) - providing CloudFormation cfn-signal equivalent functionality using AWS SQS.
+CDKTN ([CDK Terrain](https://cdktn.io), the community-maintained fork of the Cloud Development Kit for Terraform) bindings for the [terraform-provider-tconsaws](https://github.com/TerraConstructs/terraform-provider-tconsaws) - providing CloudFormation cfn-signal equivalent functionality using AWS SQS.
 
 ## Overview
 
-This package provides TypeScript constructs for the `tconsaws` Terraform provider, enabling you to use CloudFormation-style signaling patterns in your CDKTF applications. The provider allows EC2 instances or other resources to signal their readiness via AWS SQS, similar to CloudFormation's `cfn-signal` functionality.
+This package provides TypeScript constructs for the `tconsaws` Terraform provider, enabling you to use CloudFormation-style signaling patterns in your CDKTN applications. The provider allows EC2 instances or other resources to signal their readiness via AWS SQS, similar to CloudFormation's `cfn-signal` functionality.
 
 ## Installation
 
@@ -19,10 +19,10 @@ pnpm add @tcons/provider-tconsaws
 ## Usage
 
 ```typescript
-import { App, TerraformStack } from 'cdktf';
-import { Provider as AwsProvider } from '@cdktf/provider-aws/lib/provider';
-import { SqsQueue } from '@cdktf/provider-aws/lib/sqs-queue';
-import { Instance } from '@cdktf/provider-aws/lib/instance';
+import { App, TerraformStack } from 'cdktn';
+import { Provider as AwsProvider } from '@cdktn/provider-aws/lib/provider';
+import { SqsQueue } from '@cdktn/provider-aws/lib/sqs-queue';
+import { Instance } from '@cdktn/provider-aws/lib/instance';
 // use signal resource to manage instance deployments
 import { signal, provider } from '@tcons/provider-tconsaws';
 
@@ -102,7 +102,7 @@ This package uses [projen](https://projen.io) for project management and include
 # Check current provider version
 pnpm check-provider-version
 
-# Regenerate CDKTF bindings from current provider version
+# Regenerate CDKTN bindings from current provider version
 pnpm update-bindings
 
 # Update to specific provider version and regenerate bindings
@@ -120,7 +120,7 @@ pnpm release
 
 ### Regenerating Provider Bindings
 
-The CDKTF bindings are automatically generated from the Terraform provider schema. When the upstream terraform-provider-tconsaws releases a new version, you can update the bindings using:
+The CDKTN bindings are automatically generated from the Terraform provider schema. When the upstream terraform-provider-tconsaws releases a new version, you can update the bindings using:
 
 ```bash
 # Update to latest version (edit cdktf.json manually, then run)
@@ -141,13 +141,13 @@ PROVIDER_VERSION=1.2.0 pnpm update-provider
 The bindings are automatically updated when new provider versions are released through a GitHub Actions workflow that:
 1. Detects new provider releases
 2. Updates the `cdktf.json` configuration
-3. Regenerates bindings using `cdktf get`
+3. Regenerates bindings using `cdktn get`
 4. Creates a pull request with the changes
 5. Publishes updated packages to npm
 
 ### Configuration Files
 
-- **`cdktf.json`** - CDKTF configuration specifying provider version and output settings
+- **`cdktf.json`** - CDKTN configuration specifying provider version and output settings
 - **`.projenrc.ts`** - Projen project configuration with custom tasks
 - **`package.json`** - Generated npm package configuration (do not edit directly)
 
@@ -157,10 +157,10 @@ This project is licensed under the [MPL-2.0 License](LICENSE) - the same license
 
 ## Contributing
 
-This is an automatically generated CDKTF provider package. For issues related to:
+This is an automatically generated CDKTN provider package. For issues related to:
 
 - **Provider functionality**: Report issues to [terraform-provider-tconsaws](https://github.com/TerraConstructs/terraform-provider-tconsaws/issues)
-- **CDKTF bindings**: Report issues to this repository
+- **CDKTN bindings**: Report issues to this repository
 - **Signal binary**: Report issues to [signal-aws](https://github.com/TerraConstructs/signal-aws/issues)
 
 Contributions are welcome! Please ensure that any changes maintain compatibility with the upstream Terraform provider.

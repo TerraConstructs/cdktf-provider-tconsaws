@@ -2,11 +2,11 @@
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
-import * as cdktf from 'cdktf';
+import * as cdktn from 'cdktn';
 
 // Configuration
 
-export interface SignalConfig extends cdktf.TerraformMetaArguments {
+export interface SignalConfig extends cdktn.TerraformMetaArguments {
   /**
   * Number of success signals required before considering the resource complete
   *
@@ -65,32 +65,32 @@ export interface SignalTimeouts {
   readonly delete?: string;
 }
 
-export function signalTimeoutsToTerraform(struct?: SignalTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
+export function signalTimeoutsToTerraform(struct?: SignalTimeouts | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
     throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   return {
-    create: cdktf.stringToTerraform(struct!.create),
-    delete: cdktf.stringToTerraform(struct!.delete),
+    create: cdktn.stringToTerraform(struct!.create),
+    delete: cdktn.stringToTerraform(struct!.delete),
   }
 }
 
 
-export function signalTimeoutsToHclTerraform(struct?: SignalTimeouts | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
+export function signalTimeoutsToHclTerraform(struct?: SignalTimeouts | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
     throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
   }
   const attrs = {
     create: {
-      value: cdktf.stringToHclTerraform(struct!.create),
+      value: cdktn.stringToHclTerraform(struct!.create),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     delete: {
-      value: cdktf.stringToHclTerraform(struct!.delete),
+      value: cdktn.stringToHclTerraform(struct!.delete),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
@@ -101,19 +101,19 @@ export function signalTimeoutsToHclTerraform(struct?: SignalTimeouts | cdktf.IRe
   return Object.fromEntries(Object.entries(attrs).filter(([_, value]) => value !== undefined && value.value !== undefined));
 }
 
-export class SignalTimeoutsOutputReference extends cdktf.ComplexObject {
+export class SignalTimeoutsOutputReference extends cdktn.ComplexObject {
   private isEmptyObject = false;
-  private resolvableValue?: cdktf.IResolvable;
+  private resolvableValue?: cdktn.IResolvable;
 
   /**
   * @param terraformResource The parent resource
   * @param terraformAttribute The attribute on the parent resource this class is referencing
   */
-  public constructor(terraformResource: cdktf.IInterpolatingParent, terraformAttribute: string) {
+  public constructor(terraformResource: cdktn.IInterpolatingParent, terraformAttribute: string) {
     super(terraformResource, terraformAttribute, false);
   }
 
-  public get internalValue(): SignalTimeouts | cdktf.IResolvable | undefined {
+  public get internalValue(): SignalTimeouts | cdktn.IResolvable | undefined {
     if (this.resolvableValue) {
       return this.resolvableValue;
     }
@@ -130,14 +130,14 @@ export class SignalTimeoutsOutputReference extends cdktf.ComplexObject {
     return hasAnyValues ? internalValueResult : undefined;
   }
 
-  public set internalValue(value: SignalTimeouts | cdktf.IResolvable | undefined) {
+  public set internalValue(value: SignalTimeouts | cdktn.IResolvable | undefined) {
     if (value === undefined) {
       this.isEmptyObject = false;
       this.resolvableValue = undefined;
       this._create = undefined;
       this._delete = undefined;
     }
-    else if (cdktf.Tokenization.isResolvable(value)) {
+    else if (cdktn.Tokenization.isResolvable(value)) {
       this.isEmptyObject = false;
       this.resolvableValue = value;
     }
@@ -185,7 +185,7 @@ export class SignalTimeoutsOutputReference extends cdktf.ComplexObject {
 /**
 * Represents a {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs/resources/signal tconsaws_signal}
 */
-export class Signal extends cdktf.TerraformResource {
+export class Signal extends cdktn.TerraformResource {
 
   // =================
   // STATIC PROPERTIES
@@ -196,14 +196,14 @@ export class Signal extends cdktf.TerraformResource {
   // STATIC Methods
   // ==============
   /**
-  * Generates CDKTF code for importing a Signal resource upon running "cdktf plan <stack-name>"
+  * Generates CDKTN code for importing a Signal resource upon running "cdktn plan <stack-name>"
   * @param scope The scope in which to define this construct
   * @param importToId The construct id used in the generated config for the Signal to import
   * @param importFromId The id of the existing Signal that should be imported. Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs/resources/signal#import import section} in the documentation of this resource for the id to use
   * @param provider? Optional instance of the provider where the Signal to import is found
   */
-  public static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider) {
-        return new cdktf.ImportableResource(scope, importToId, { terraformResourceType: "tconsaws_signal", importId: importFromId, provider });
+  public static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktn.TerraformProvider) {
+        return new cdktn.ImportableResource(scope, importToId, { terraformResourceType: "tconsaws_signal", importId: importFromId, provider });
       }
 
   // ===========
@@ -375,12 +375,12 @@ export class Signal extends cdktf.TerraformResource {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      expected_count: cdktf.numberToTerraform(this._expectedCount),
-      publish_timeout: cdktf.stringToTerraform(this._publishTimeout),
-      queue_url: cdktf.stringToTerraform(this._queueUrl),
-      retries: cdktf.numberToTerraform(this._retries),
-      signal_id: cdktf.stringToTerraform(this._signalId),
-      triggers: cdktf.hashMapper(cdktf.stringToTerraform)(this._triggers),
+      expected_count: cdktn.numberToTerraform(this._expectedCount),
+      publish_timeout: cdktn.stringToTerraform(this._publishTimeout),
+      queue_url: cdktn.stringToTerraform(this._queueUrl),
+      retries: cdktn.numberToTerraform(this._retries),
+      signal_id: cdktn.stringToTerraform(this._signalId),
+      triggers: cdktn.hashMapper(cdktn.stringToTerraform)(this._triggers),
       timeouts: signalTimeoutsToTerraform(this._timeouts.internalValue),
     };
   }
@@ -388,37 +388,37 @@ export class Signal extends cdktf.TerraformResource {
   protected synthesizeHclAttributes(): { [name: string]: any } {
     const attrs = {
       expected_count: {
-        value: cdktf.numberToHclTerraform(this._expectedCount),
+        value: cdktn.numberToHclTerraform(this._expectedCount),
         isBlock: false,
         type: "simple",
         storageClassType: "number",
       },
       publish_timeout: {
-        value: cdktf.stringToHclTerraform(this._publishTimeout),
+        value: cdktn.stringToHclTerraform(this._publishTimeout),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       queue_url: {
-        value: cdktf.stringToHclTerraform(this._queueUrl),
+        value: cdktn.stringToHclTerraform(this._queueUrl),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       retries: {
-        value: cdktf.numberToHclTerraform(this._retries),
+        value: cdktn.numberToHclTerraform(this._retries),
         isBlock: false,
         type: "simple",
         storageClassType: "number",
       },
       signal_id: {
-        value: cdktf.stringToHclTerraform(this._signalId),
+        value: cdktn.stringToHclTerraform(this._signalId),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       triggers: {
-        value: cdktf.hashMapperHcl(cdktf.stringToHclTerraform)(this._triggers),
+        value: cdktn.hashMapperHcl(cdktn.stringToHclTerraform)(this._triggers),
         isBlock: false,
         type: "map",
         storageClassType: "stringMap",

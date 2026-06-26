@@ -1,6 +1,6 @@
 {
   "name": "@tcons/provider-tconsaws",
-  "description": "CDKTF bindings for terraform-provider-tconsaws - CloudFormation cfn-signal equivalent functionality using AWS SQS",
+  "description": "CDKTN bindings for terraform-provider-tconsaws - CloudFormation cfn-signal equivalent functionality using AWS SQS",
   "repository": {
     "type": "git",
     "url": "https://github.com/TerraConstructs/cdktf-provider-tconsaws.git"
@@ -39,9 +39,9 @@
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.1.0",
-    "cdktf": "0.20.8",
+    "cdktn": "0.23.0",
     "commit-and-tag-version": "^12",
-    "constructs": "10.3.0",
+    "constructs": "10.6.0",
     "jest": "^30.0.5",
     "jest-junit": "^16",
     "jsii": "~5.7.0",
@@ -55,14 +55,14 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "cdktf": "^0.20.8",
-    "constructs": "^10.3.0"
+    "cdktn": "^0.23.0",
+    "constructs": "^10.6.0"
   },
   "pnpm": {},
   "keywords": [
     "aws",
     "cdk",
-    "cdktf",
+    "cdktn",
     "cloudformation",
     "signal",
     "sqs",

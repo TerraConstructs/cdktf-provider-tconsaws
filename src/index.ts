@@ -1,2 +1,2 @@
-// Export the generated CDKTF provider bindings
+// Export the generated CDKTN provider bindings
 export * from "./tconsaws";

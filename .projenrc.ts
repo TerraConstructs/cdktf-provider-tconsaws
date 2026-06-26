@@ -1,13 +1,12 @@
-import { 
-  cdktf,
+import {
+  cdk,
   javascript,
   // TaskCategory,
 } from "projen";
 
-const project = new cdktf.ConstructLibraryCdktf({
+const project = new cdk.JsiiProject({
   author: "Vincent De Smet",
   authorAddress: "vincent.drl@gmail.com",
-  cdktfVersion: "^0.20.8",
   defaultReleaseBranch: "main",
   jsiiVersion: "~5.7.0",
   name: "cdktf-provider-tconsaws",
@@ -16,9 +15,9 @@ const project = new cdktf.ConstructLibraryCdktf({
   repositoryUrl:
     "https://github.com/TerraConstructs/cdktf-provider-tconsaws.git",
   description:
-    "CDKTF bindings for terraform-provider-tconsaws - CloudFormation cfn-signal equivalent functionality using AWS SQS",
+    "CDKTN bindings for terraform-provider-tconsaws - CloudFormation cfn-signal equivalent functionality using AWS SQS",
   license: "MPL-2.0",
-  keywords: ["cdktf", "terraform", "aws", "sqs", "signal", "cloudformation"],
+  keywords: ["cdk", "cdktn", "terraform", "aws", "sqs", "signal", "cloudformation"],
 
   // NPM publishing configuration
   npmAccess: javascript.NpmAccess.PUBLIC,
@@ -29,9 +28,9 @@ const project = new cdktf.ConstructLibraryCdktf({
     mergify: false,
   },
 
-  // Dependencies
-  peerDeps: ["cdktf@^0.20.8", "constructs@^10.3.0"],
-  devDeps: ["cdktf@^0.20.8", "constructs@^10.3.0"],
+  // Dependencies (CDK Terrain - community fork of CDKTF)
+  peerDeps: ["cdktn@^0.23.0", "constructs@^10.6.0"],
+  devDeps: ["cdktn@^0.23.0", "constructs@^10.6.0"],
 
   // Package manager configuration
   packageManager: javascript.NodePackageManager.PNPM,
@@ -43,15 +42,15 @@ const project = new cdktf.ConstructLibraryCdktf({
 // silence COREPACK_ENABLE_AUTO_PIN warning
 project.package.addField("packageManager", "pnpm@9.9.0");
 
-// Add custom tasks for CDKTF provider binding management
+// Add custom tasks for CDKTN provider binding management
 const updateBindings = project.addTask("update-bindings", {
-  description: "Regenerate CDKTF provider bindings from terraform provider",
+  description: "Regenerate CDKTN provider bindings from terraform provider",
   // category: TaskCategory.BUILD,
 });
 
 // Main binding regeneration workflow
-updateBindings.exec("echo 'Starting CDKTF provider binding regeneration...'");
-updateBindings.exec("pnpx cdktf-cli get", { 
+updateBindings.exec("echo 'Starting CDKTN provider binding regeneration...'");
+updateBindings.exec("pnpx cdktn-cli get", {
   name: "Generate provider bindings"
 });
 updateBindings.exec("rm -rf src/tconsaws", {

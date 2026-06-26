@@ -264,13 +264,13 @@
     },
     "update-bindings": {
       "name": "update-bindings",
-      "description": "Regenerate CDKTF provider bindings from terraform provider",
+      "description": "Regenerate CDKTN provider bindings from terraform provider",
       "steps": [
         {
-          "exec": "echo 'Starting CDKTF provider binding regeneration...'"
+          "exec": "echo 'Starting CDKTN provider binding regeneration...'"
         },
         {
-          "exec": "pnpx cdktf-cli get",
+          "exec": "pnpx cdktn-cli get",
           "name": "Generate provider bindings"
         },
         {
@@ -330,7 +330,7 @@
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/jest @types/node cdktf commit-and-tag-version constructs jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest ts-node typescript"
+          "exec": "pnpm update @types/jest @types/node cdktn commit-and-tag-version constructs jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest ts-node typescript"
         },
         {
           "exec": "npx projen"

@@ -9,8 +9,8 @@
       "type": "build"
     },
     {
-      "name": "cdktf",
-      "version": "^0.20.8",
+      "name": "cdktn",
+      "version": "^0.23.0",
       "type": "build"
     },
     {
@@ -20,7 +20,7 @@
     },
     {
       "name": "constructs",
-      "version": "^10.3.0",
+      "version": "^10.6.0",
       "type": "build"
     },
     {
@@ -72,13 +72,13 @@
       "type": "build"
     },
     {
-      "name": "cdktf",
-      "version": "^0.20.8",
+      "name": "cdktn",
+      "version": "^0.23.0",
       "type": "peer"
     },
     {
       "name": "constructs",
-      "version": "^10.3.0",
+      "version": "^10.6.0",
       "type": "peer"
     }
   ],

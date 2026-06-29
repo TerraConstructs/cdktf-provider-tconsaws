@@ -23,6 +23,9 @@ import { App, TerraformStack } from 'cdktn';
 import { Provider as AwsProvider } from '@cdktn/provider-aws/lib/provider';
 import { SqsQueue } from '@cdktn/provider-aws/lib/sqs-queue';
 import { Instance } from '@cdktn/provider-aws/lib/instance';
+import { IamRole } from '@cdktn/provider-aws/lib/iam-role';
+import { IamRolePolicy } from '@cdktn/provider-aws/lib/iam-role-policy';
+import { IamInstanceProfile } from '@cdktn/provider-aws/lib/iam-instance-profile';
 // use signal resource to manage instance deployments
 import { signal, provider } from '@tcons/provider-tconsaws';
 
@@ -44,11 +47,48 @@ class MyStack extends TerraformStack {
       name: 'deployment-signals'
     });
 
+    // IAM role the instances assume so tcsignal-aws can publish to the queue
+    const instanceRole = new IamRole(this, 'InstanceRole', {
+      name: 'deployment-signal-instance-role',
+      assumeRolePolicy: JSON.stringify({
+        Version: '2012-10-17',
+        Statement: [{
+          Effect: 'Allow',
+          Principal: { Service: 'ec2.amazonaws.com' },
+          Action: 'sts:AssumeRole',
+        }],
+      }),
+    });
+
+    // Grant the instances write access to the signal queue.
+    // Without sqs:SendMessage on the queue, the user-data call to
+    // tcsignal-aws fails with AccessDenied and the signal is never received.
+    new IamRolePolicy(this, 'InstanceSignalPolicy', {
+      name: 'deployment-signal-send-message',
+      role: instanceRole.id,
+      policy: JSON.stringify({
+        Version: '2012-10-17',
+        Statement: [{
+          Effect: 'Allow',
+          Action: ['sqs:SendMessage', 'sqs:GetQueueUrl'],
+          Resource: signalQueue.arn,
+        }],
+      }),
+    });
+
+    // Expose the role to EC2 via an instance profile
+    const instanceProfile = new IamInstanceProfile(this, 'InstanceProfile', {
+      name: 'deployment-signal-instance-profile',
+      role: instanceRole.name,
+    });
+
     // Create EC2 instances
-    const instances = new Instance(this, `WebServer${i}`, {
+    const instances = new Instance(this, 'WebServer', {
       count: 3,
       ami: 'ami-0c02fb55956c7d316',
       instanceType: 't3.micro',
+      // attach the profile so the instance has credentials to write to SQS
+      iamInstanceProfile: instanceProfile.name,
       userData: `#!/bin/bash
         yum update -y
         yum install -y httpd
@@ -72,7 +112,7 @@ class MyStack extends TerraformStack {
     new signal.Signal(this, 'WaitForInstances', {
       queueUrl: signalQueue.url,
       signalId: 'deployment-abc123',
-      expectedCount: 3
+      expectedCount: 3,
       retries: 3,
       timeouts: {
         create: '10m'

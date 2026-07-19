@@ -4,7 +4,7 @@
  */
 
 // // pnpm exec ts-node test/stub.ts
-// import { Testing, TerraformStack,  } from "cdktf";
+// import { Testing, TerraformStack,  } from "cdktn";
 // import { signal, provider } from "../src/";
 // const app = Testing.app();
 // const stack = new TerraformStack(app, "test-stack");

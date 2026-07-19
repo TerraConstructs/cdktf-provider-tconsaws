@@ -2,7 +2,7 @@
 // generated from terraform resource schema
 
 import { Construct } from 'constructs';
-import * as cdktf from 'cdktf';
+import * as cdktn from 'cdktn';
 
 // Configuration
 
@@ -60,7 +60,7 @@ export interface TconsawsProviderConfig {
   *
   * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs#skip_metadata_api_check TconsawsProvider#skip_metadata_api_check}
   */
-  readonly skipMetadataApiCheck?: boolean | cdktf.IResolvable;
+  readonly skipMetadataApiCheck?: boolean | cdktn.IResolvable;
   /**
   * AWS session token
   *
@@ -78,19 +78,19 @@ export interface TconsawsProviderConfig {
   *
   * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs#assume_role TconsawsProvider#assume_role}
   */
-  readonly assumeRole?: TconsawsProviderAssumeRole[] | cdktf.IResolvable;
+  readonly assumeRole?: TconsawsProviderAssumeRole[] | cdktn.IResolvable;
   /**
   * assume_role_with_web_identity block
   *
   * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs#assume_role_with_web_identity TconsawsProvider#assume_role_with_web_identity}
   */
-  readonly assumeRoleWithWebIdentity?: TconsawsProviderAssumeRoleWithWebIdentity[] | cdktf.IResolvable;
+  readonly assumeRoleWithWebIdentity?: TconsawsProviderAssumeRoleWithWebIdentity[] | cdktn.IResolvable;
   /**
   * endpoints block
   *
   * Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs#endpoints TconsawsProvider#endpoints}
   */
-  readonly endpoints?: TconsawsProviderEndpoints[] | cdktf.IResolvable;
+  readonly endpoints?: TconsawsProviderEndpoints[] | cdktn.IResolvable;
 }
 export interface TconsawsProviderAssumeRole {
   /**
@@ -149,81 +149,81 @@ export interface TconsawsProviderAssumeRole {
   readonly transitiveTagKeys?: string[];
 }
 
-export function tconsawsProviderAssumeRoleToTerraform(struct?: TconsawsProviderAssumeRole | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+export function tconsawsProviderAssumeRoleToTerraform(struct?: TconsawsProviderAssumeRole | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdktn.io/docs/concepts/resources#references");
   }
   return {
-    duration: cdktf.stringToTerraform(struct!.duration),
-    external_id: cdktf.stringToTerraform(struct!.externalId),
-    policy: cdktf.stringToTerraform(struct!.policy),
-    policy_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.policyArns),
-    role_arn: cdktf.stringToTerraform(struct!.roleArn),
-    session_name: cdktf.stringToTerraform(struct!.sessionName),
-    source_identity: cdktf.stringToTerraform(struct!.sourceIdentity),
-    tags: cdktf.hashMapper(cdktf.stringToTerraform)(struct!.tags),
-    transitive_tag_keys: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.transitiveTagKeys),
+    duration: cdktn.stringToTerraform(struct!.duration),
+    external_id: cdktn.stringToTerraform(struct!.externalId),
+    policy: cdktn.stringToTerraform(struct!.policy),
+    policy_arns: cdktn.listMapper(cdktn.stringToTerraform, false)(struct!.policyArns),
+    role_arn: cdktn.stringToTerraform(struct!.roleArn),
+    session_name: cdktn.stringToTerraform(struct!.sessionName),
+    source_identity: cdktn.stringToTerraform(struct!.sourceIdentity),
+    tags: cdktn.hashMapper(cdktn.stringToTerraform)(struct!.tags),
+    transitive_tag_keys: cdktn.listMapper(cdktn.stringToTerraform, false)(struct!.transitiveTagKeys),
   }
 }
 
 
-export function tconsawsProviderAssumeRoleToHclTerraform(struct?: TconsawsProviderAssumeRole | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+export function tconsawsProviderAssumeRoleToHclTerraform(struct?: TconsawsProviderAssumeRole | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdktn.io/docs/concepts/resources#references");
   }
   const attrs = {
     duration: {
-      value: cdktf.stringToHclTerraform(struct!.duration),
+      value: cdktn.stringToHclTerraform(struct!.duration),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     external_id: {
-      value: cdktf.stringToHclTerraform(struct!.externalId),
+      value: cdktn.stringToHclTerraform(struct!.externalId),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     policy: {
-      value: cdktf.stringToHclTerraform(struct!.policy),
+      value: cdktn.stringToHclTerraform(struct!.policy),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     policy_arns: {
-      value: cdktf.listMapperHcl(cdktf.stringToHclTerraform, false)(struct!.policyArns),
+      value: cdktn.listMapperHcl(cdktn.stringToHclTerraform, false)(struct!.policyArns),
       isBlock: false,
       type: "set",
       storageClassType: "stringList",
     },
     role_arn: {
-      value: cdktf.stringToHclTerraform(struct!.roleArn),
+      value: cdktn.stringToHclTerraform(struct!.roleArn),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     session_name: {
-      value: cdktf.stringToHclTerraform(struct!.sessionName),
+      value: cdktn.stringToHclTerraform(struct!.sessionName),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     source_identity: {
-      value: cdktf.stringToHclTerraform(struct!.sourceIdentity),
+      value: cdktn.stringToHclTerraform(struct!.sourceIdentity),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     tags: {
-      value: cdktf.hashMapperHcl(cdktf.stringToHclTerraform)(struct!.tags),
+      value: cdktn.hashMapperHcl(cdktn.stringToHclTerraform)(struct!.tags),
       isBlock: false,
       type: "map",
       storageClassType: "stringMap",
     },
     transitive_tag_keys: {
-      value: cdktf.listMapperHcl(cdktf.stringToHclTerraform, false)(struct!.transitiveTagKeys),
+      value: cdktn.listMapperHcl(cdktn.stringToHclTerraform, false)(struct!.transitiveTagKeys),
       isBlock: false,
       type: "set",
       storageClassType: "stringList",
@@ -279,67 +279,67 @@ export interface TconsawsProviderAssumeRoleWithWebIdentity {
   readonly webIdentityTokenFile?: string;
 }
 
-export function tconsawsProviderAssumeRoleWithWebIdentityToTerraform(struct?: TconsawsProviderAssumeRoleWithWebIdentity | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+export function tconsawsProviderAssumeRoleWithWebIdentityToTerraform(struct?: TconsawsProviderAssumeRoleWithWebIdentity | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdktn.io/docs/concepts/resources#references");
   }
   return {
-    duration: cdktf.stringToTerraform(struct!.duration),
-    policy: cdktf.stringToTerraform(struct!.policy),
-    policy_arns: cdktf.listMapper(cdktf.stringToTerraform, false)(struct!.policyArns),
-    role_arn: cdktf.stringToTerraform(struct!.roleArn),
-    session_name: cdktf.stringToTerraform(struct!.sessionName),
-    web_identity_token: cdktf.stringToTerraform(struct!.webIdentityToken),
-    web_identity_token_file: cdktf.stringToTerraform(struct!.webIdentityTokenFile),
+    duration: cdktn.stringToTerraform(struct!.duration),
+    policy: cdktn.stringToTerraform(struct!.policy),
+    policy_arns: cdktn.listMapper(cdktn.stringToTerraform, false)(struct!.policyArns),
+    role_arn: cdktn.stringToTerraform(struct!.roleArn),
+    session_name: cdktn.stringToTerraform(struct!.sessionName),
+    web_identity_token: cdktn.stringToTerraform(struct!.webIdentityToken),
+    web_identity_token_file: cdktn.stringToTerraform(struct!.webIdentityTokenFile),
   }
 }
 
 
-export function tconsawsProviderAssumeRoleWithWebIdentityToHclTerraform(struct?: TconsawsProviderAssumeRoleWithWebIdentity | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+export function tconsawsProviderAssumeRoleWithWebIdentityToHclTerraform(struct?: TconsawsProviderAssumeRoleWithWebIdentity | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdktn.io/docs/concepts/resources#references");
   }
   const attrs = {
     duration: {
-      value: cdktf.stringToHclTerraform(struct!.duration),
+      value: cdktn.stringToHclTerraform(struct!.duration),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     policy: {
-      value: cdktf.stringToHclTerraform(struct!.policy),
+      value: cdktn.stringToHclTerraform(struct!.policy),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     policy_arns: {
-      value: cdktf.listMapperHcl(cdktf.stringToHclTerraform, false)(struct!.policyArns),
+      value: cdktn.listMapperHcl(cdktn.stringToHclTerraform, false)(struct!.policyArns),
       isBlock: false,
       type: "set",
       storageClassType: "stringList",
     },
     role_arn: {
-      value: cdktf.stringToHclTerraform(struct!.roleArn),
+      value: cdktn.stringToHclTerraform(struct!.roleArn),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     session_name: {
-      value: cdktf.stringToHclTerraform(struct!.sessionName),
+      value: cdktn.stringToHclTerraform(struct!.sessionName),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     web_identity_token: {
-      value: cdktf.stringToHclTerraform(struct!.webIdentityToken),
+      value: cdktn.stringToHclTerraform(struct!.webIdentityToken),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
     },
     web_identity_token_file: {
-      value: cdktf.stringToHclTerraform(struct!.webIdentityTokenFile),
+      value: cdktn.stringToHclTerraform(struct!.webIdentityTokenFile),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
@@ -359,25 +359,25 @@ export interface TconsawsProviderEndpoints {
   readonly sqs?: string;
 }
 
-export function tconsawsProviderEndpointsToTerraform(struct?: TconsawsProviderEndpoints | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+export function tconsawsProviderEndpointsToTerraform(struct?: TconsawsProviderEndpoints | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdktn.io/docs/concepts/resources#references");
   }
   return {
-    sqs: cdktf.stringToTerraform(struct!.sqs),
+    sqs: cdktn.stringToTerraform(struct!.sqs),
   }
 }
 
 
-export function tconsawsProviderEndpointsToHclTerraform(struct?: TconsawsProviderEndpoints | cdktf.IResolvable): any {
-  if (!cdktf.canInspect(struct) || cdktf.Tokenization.isResolvable(struct)) { return struct; }
-  if (cdktf.isComplexElement(struct)) {
-    throw new Error("A complex element was used as configuration, this is not supported: https://cdk.tf/complex-object-as-configuration");
+export function tconsawsProviderEndpointsToHclTerraform(struct?: TconsawsProviderEndpoints | cdktn.IResolvable): any {
+  if (!cdktn.canInspect(struct) || cdktn.Tokenization.isResolvable(struct)) { return struct; }
+  if (cdktn.isComplexElement(struct)) {
+    throw new Error("A complex element was used as configuration, this is not supported: https://cdktn.io/docs/concepts/resources#references");
   }
   const attrs = {
     sqs: {
-      value: cdktf.stringToHclTerraform(struct!.sqs),
+      value: cdktn.stringToHclTerraform(struct!.sqs),
       isBlock: false,
       type: "simple",
       storageClassType: "string",
@@ -392,7 +392,7 @@ export function tconsawsProviderEndpointsToHclTerraform(struct?: TconsawsProvide
 /**
 * Represents a {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs tconsaws}
 */
-export class TconsawsProvider extends cdktf.TerraformProvider {
+export class TconsawsProvider extends cdktn.TerraformProvider {
 
   // =================
   // STATIC PROPERTIES
@@ -403,14 +403,14 @@ export class TconsawsProvider extends cdktf.TerraformProvider {
   // STATIC Methods
   // ==============
   /**
-  * Generates CDKTF code for importing a TconsawsProvider resource upon running "cdktf plan <stack-name>"
+  * Generates CDKTN code for importing a TconsawsProvider resource upon running "cdktn plan <stack-name>"
   * @param scope The scope in which to define this construct
   * @param importToId The construct id used in the generated config for the TconsawsProvider to import
   * @param importFromId The id of the existing TconsawsProvider that should be imported. Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tconsaws/1.0.0/docs#import import section} in the documentation of this resource for the id to use
   * @param provider? Optional instance of the provider where the TconsawsProvider to import is found
   */
-  public static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktf.TerraformProvider) {
-        return new cdktf.ImportableResource(scope, importToId, { terraformResourceType: "tconsaws", importId: importFromId, provider });
+  public static generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: cdktn.TerraformProvider) {
+        return new cdktn.ImportableResource(scope, importToId, { terraformResourceType: "tconsaws", importId: importFromId, provider });
       }
 
   // ===========
@@ -583,11 +583,11 @@ export class TconsawsProvider extends cdktf.TerraformProvider {
   }
 
   // skip_metadata_api_check - computed: false, optional: true, required: false
-  private _skipMetadataApiCheck?: boolean | cdktf.IResolvable; 
+  private _skipMetadataApiCheck?: boolean | cdktn.IResolvable; 
   public get skipMetadataApiCheck() {
     return this._skipMetadataApiCheck;
   }
-  public set skipMetadataApiCheck(value: boolean | cdktf.IResolvable | undefined) {
+  public set skipMetadataApiCheck(value: boolean | cdktn.IResolvable | undefined) {
     this._skipMetadataApiCheck = value;
   }
   public resetSkipMetadataApiCheck() {
@@ -631,11 +631,11 @@ export class TconsawsProvider extends cdktf.TerraformProvider {
   }
 
   // assume_role - computed: false, optional: true, required: false
-  private _assumeRole?: TconsawsProviderAssumeRole[] | cdktf.IResolvable; 
+  private _assumeRole?: TconsawsProviderAssumeRole[] | cdktn.IResolvable; 
   public get assumeRole() {
     return this._assumeRole;
   }
-  public set assumeRole(value: TconsawsProviderAssumeRole[] | cdktf.IResolvable | undefined) {
+  public set assumeRole(value: TconsawsProviderAssumeRole[] | cdktn.IResolvable | undefined) {
     this._assumeRole = value;
   }
   public resetAssumeRole() {
@@ -647,11 +647,11 @@ export class TconsawsProvider extends cdktf.TerraformProvider {
   }
 
   // assume_role_with_web_identity - computed: false, optional: true, required: false
-  private _assumeRoleWithWebIdentity?: TconsawsProviderAssumeRoleWithWebIdentity[] | cdktf.IResolvable; 
+  private _assumeRoleWithWebIdentity?: TconsawsProviderAssumeRoleWithWebIdentity[] | cdktn.IResolvable; 
   public get assumeRoleWithWebIdentity() {
     return this._assumeRoleWithWebIdentity;
   }
-  public set assumeRoleWithWebIdentity(value: TconsawsProviderAssumeRoleWithWebIdentity[] | cdktf.IResolvable | undefined) {
+  public set assumeRoleWithWebIdentity(value: TconsawsProviderAssumeRoleWithWebIdentity[] | cdktn.IResolvable | undefined) {
     this._assumeRoleWithWebIdentity = value;
   }
   public resetAssumeRoleWithWebIdentity() {
@@ -663,11 +663,11 @@ export class TconsawsProvider extends cdktf.TerraformProvider {
   }
 
   // endpoints - computed: false, optional: true, required: false
-  private _endpoints?: TconsawsProviderEndpoints[] | cdktf.IResolvable; 
+  private _endpoints?: TconsawsProviderEndpoints[] | cdktn.IResolvable; 
   public get endpoints() {
     return this._endpoints;
   }
-  public set endpoints(value: TconsawsProviderEndpoints[] | cdktf.IResolvable | undefined) {
+  public set endpoints(value: TconsawsProviderEndpoints[] | cdktn.IResolvable | undefined) {
     this._endpoints = value;
   }
   public resetEndpoints() {
@@ -684,105 +684,105 @@ export class TconsawsProvider extends cdktf.TerraformProvider {
 
   protected synthesizeAttributes(): { [name: string]: any } {
     return {
-      access_key: cdktf.stringToTerraform(this._accessKey),
-      max_retries: cdktf.numberToTerraform(this._maxRetries),
-      profile: cdktf.stringToTerraform(this._profile),
-      region: cdktf.stringToTerraform(this._region),
-      retry_mode: cdktf.stringToTerraform(this._retryMode),
-      secret_key: cdktf.stringToTerraform(this._secretKey),
-      shared_config_files: cdktf.listMapper(cdktf.stringToTerraform, false)(this._sharedConfigFiles),
-      shared_credentials_files: cdktf.listMapper(cdktf.stringToTerraform, false)(this._sharedCredentialsFiles),
-      skip_metadata_api_check: cdktf.booleanToTerraform(this._skipMetadataApiCheck),
-      token: cdktf.stringToTerraform(this._token),
-      alias: cdktf.stringToTerraform(this._alias),
-      assume_role: cdktf.listMapper(tconsawsProviderAssumeRoleToTerraform, true)(this._assumeRole),
-      assume_role_with_web_identity: cdktf.listMapper(tconsawsProviderAssumeRoleWithWebIdentityToTerraform, true)(this._assumeRoleWithWebIdentity),
-      endpoints: cdktf.listMapper(tconsawsProviderEndpointsToTerraform, true)(this._endpoints),
+      access_key: cdktn.stringToTerraform(this._accessKey),
+      max_retries: cdktn.numberToTerraform(this._maxRetries),
+      profile: cdktn.stringToTerraform(this._profile),
+      region: cdktn.stringToTerraform(this._region),
+      retry_mode: cdktn.stringToTerraform(this._retryMode),
+      secret_key: cdktn.stringToTerraform(this._secretKey),
+      shared_config_files: cdktn.listMapper(cdktn.stringToTerraform, false)(this._sharedConfigFiles),
+      shared_credentials_files: cdktn.listMapper(cdktn.stringToTerraform, false)(this._sharedCredentialsFiles),
+      skip_metadata_api_check: cdktn.booleanToTerraform(this._skipMetadataApiCheck),
+      token: cdktn.stringToTerraform(this._token),
+      alias: cdktn.stringToTerraform(this._alias),
+      assume_role: cdktn.listMapper(tconsawsProviderAssumeRoleToTerraform, true)(this._assumeRole),
+      assume_role_with_web_identity: cdktn.listMapper(tconsawsProviderAssumeRoleWithWebIdentityToTerraform, true)(this._assumeRoleWithWebIdentity),
+      endpoints: cdktn.listMapper(tconsawsProviderEndpointsToTerraform, true)(this._endpoints),
     };
   }
 
   protected synthesizeHclAttributes(): { [name: string]: any } {
     const attrs = {
       access_key: {
-        value: cdktf.stringToHclTerraform(this._accessKey),
+        value: cdktn.stringToHclTerraform(this._accessKey),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       max_retries: {
-        value: cdktf.numberToHclTerraform(this._maxRetries),
+        value: cdktn.numberToHclTerraform(this._maxRetries),
         isBlock: false,
         type: "simple",
         storageClassType: "number",
       },
       profile: {
-        value: cdktf.stringToHclTerraform(this._profile),
+        value: cdktn.stringToHclTerraform(this._profile),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       region: {
-        value: cdktf.stringToHclTerraform(this._region),
+        value: cdktn.stringToHclTerraform(this._region),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       retry_mode: {
-        value: cdktf.stringToHclTerraform(this._retryMode),
+        value: cdktn.stringToHclTerraform(this._retryMode),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       secret_key: {
-        value: cdktf.stringToHclTerraform(this._secretKey),
+        value: cdktn.stringToHclTerraform(this._secretKey),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       shared_config_files: {
-        value: cdktf.listMapperHcl(cdktf.stringToHclTerraform, false)(this._sharedConfigFiles),
+        value: cdktn.listMapperHcl(cdktn.stringToHclTerraform, false)(this._sharedConfigFiles),
         isBlock: false,
         type: "list",
         storageClassType: "stringList",
       },
       shared_credentials_files: {
-        value: cdktf.listMapperHcl(cdktf.stringToHclTerraform, false)(this._sharedCredentialsFiles),
+        value: cdktn.listMapperHcl(cdktn.stringToHclTerraform, false)(this._sharedCredentialsFiles),
         isBlock: false,
         type: "list",
         storageClassType: "stringList",
       },
       skip_metadata_api_check: {
-        value: cdktf.booleanToHclTerraform(this._skipMetadataApiCheck),
+        value: cdktn.booleanToHclTerraform(this._skipMetadataApiCheck),
         isBlock: false,
         type: "simple",
         storageClassType: "boolean",
       },
       token: {
-        value: cdktf.stringToHclTerraform(this._token),
+        value: cdktn.stringToHclTerraform(this._token),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       alias: {
-        value: cdktf.stringToHclTerraform(this._alias),
+        value: cdktn.stringToHclTerraform(this._alias),
         isBlock: false,
         type: "simple",
         storageClassType: "string",
       },
       assume_role: {
-        value: cdktf.listMapperHcl(tconsawsProviderAssumeRoleToHclTerraform, true)(this._assumeRole),
+        value: cdktn.listMapperHcl(tconsawsProviderAssumeRoleToHclTerraform, true)(this._assumeRole),
         isBlock: true,
         type: "list",
         storageClassType: "TconsawsProviderAssumeRoleList",
       },
       assume_role_with_web_identity: {
-        value: cdktf.listMapperHcl(tconsawsProviderAssumeRoleWithWebIdentityToHclTerraform, true)(this._assumeRoleWithWebIdentity),
+        value: cdktn.listMapperHcl(tconsawsProviderAssumeRoleWithWebIdentityToHclTerraform, true)(this._assumeRoleWithWebIdentity),
         isBlock: true,
         type: "list",
         storageClassType: "TconsawsProviderAssumeRoleWithWebIdentityList",
       },
       endpoints: {
-        value: cdktf.listMapperHcl(tconsawsProviderEndpointsToHclTerraform, true)(this._endpoints),
+        value: cdktn.listMapperHcl(tconsawsProviderEndpointsToHclTerraform, true)(this._endpoints),
         isBlock: true,
         type: "set",
         storageClassType: "TconsawsProviderEndpointsList",

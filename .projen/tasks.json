@@ -1,4 +1,8 @@
 {
+  "manifestVersion": 3,
+  "env": {
+    "PATH": "$(pnpm -c exec \"node --print process.env.PATH\")"
+  },
   "tasks": {
     "build": {
       "name": "build",
@@ -37,21 +41,40 @@
       },
       "steps": [
         {
-          "builtin": "release/bump-version"
+          "builtin": "release/resolve-latest-tag",
+          "outputEnv": "LATEST_TAG"
+        },
+        {
+          "spawn": "bump:releasable-commits",
+          "outputEnv": "RELEASABLE_COMMITS",
+          "condition": "git rev-parse --verify --quiet \"refs/tags/$LATEST_TAG\""
+        },
+        {
+          "builtin": "release/suggest-version-bump",
+          "outputEnv": "SUGGESTED_BUMP"
+        },
+        {
+          "builtin": "release/apply-version-bump"
         }
       ],
-      "condition": "git log --oneline -1 | grep -qv \"chore(release):\""
+      "condition": "git log --oneline -1 | grep -v \"chore(release):\" > /dev/null"
+    },
+    "bump:releasable-commits": {
+      "name": "bump:releasable-commits",
+      "description": "Print the releasable commits since the latest release",
+      "steps": [
+        {
+          "exec": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'"
+        }
+      ]
     },
     "check-provider-version": {
       "name": "check-provider-version",
       "description": "Check if terraform provider has a newer version available",
       "steps": [
         {
-          "exec": "echo 'Checking for provider updates...'"
-        },
-        {
-          "exec": "\nCURRENT_VERSION=$(grep -o 'tconsaws@~> [0-9.]*' cdktf.json | cut -d' ' -f2)\necho \"Current provider version: $CURRENT_VERSION\"\necho \"Check https://registry.terraform.io/providers/terraconstructs/tconsaws for latest version\"\n",
-          "name": "Display current version and registry link"
+          "exec": "LATEST=$(curl -s https://registry.terraform.io/v1/providers/terraconstructs/tconsaws | jq -r .version)\nCURRENT=$(jq -r 'to_entries[0].value' src/version.json 2>/dev/null || echo \"unknown\")\necho \"Current bindings: $CURRENT / Latest provider release: $LATEST\"",
+          "name": "Compare bindings against registry"
         }
       ]
     },
@@ -110,7 +133,12 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
+          "execArgs": [
+            "ts-node",
+            "--project",
+            "projenrc/tsconfig.json",
+            ".projenrc.ts"
+          ]
         }
       ]
     },
@@ -119,7 +147,11 @@
       "description": "Generate API.md from .jsii manifest",
       "steps": [
         {
-          "exec": "jsii-docgen -o API.md"
+          "execArgs": [
+            "jsii-docgen",
+            "-o",
+            "API.md"
+          ]
         }
       ]
     },
@@ -181,7 +213,14 @@
       "description": "Create js language bindings",
       "steps": [
         {
-          "exec": "jsii-pacmak -v --pack-command \"pnpm pack\" --target js"
+          "execArgs": [
+            "jsii-pacmak",
+            "-v",
+            "--pack-command",
+            "pnpm pack",
+            "--target",
+            "js"
+          ]
         }
       ]
     },
@@ -264,13 +303,13 @@
     },
     "update-bindings": {
       "name": "update-bindings",
-      "description": "Regenerate CDKTF provider bindings from terraform provider",
+      "description": "Regenerate CDKTN provider bindings from terraform provider",
+      "env": {
+        "CHECKPOINT_DISABLE": "1"
+      },
       "steps": [
         {
-          "exec": "echo 'Starting CDKTF provider binding regeneration...'"
-        },
-        {
-          "exec": "pnpx cdktf-cli get",
+          "exec": "cdktn get",
           "name": "Generate provider bindings"
         },
         {
@@ -282,11 +321,12 @@
           "name": "Move new bindings to src"
         },
         {
-          "exec": "rm -rf .gen",
-          "name": "Clean up generation artifacts"
+          "exec": "cp .gen/versions.json src/version.json",
+          "name": "Track generated provider version"
         },
         {
-          "exec": "echo 'Provider bindings regenerated successfully'"
+          "exec": "rm -rf .gen",
+          "name": "Clean up generation artifacts"
         }
       ]
     },
@@ -302,7 +342,7 @@
           "name": "Validate provider version"
         },
         {
-          "exec": "sed -i.bak \"s|registry.terraform.io/terraconstructs/tconsaws@.*|registry.terraform.io/terraconstructs/tconsaws@~> $PROVIDER_VERSION|\" cdktf.json",
+          "exec": "sed -i.bak \"s|registry.terraform.io/terraconstructs/tconsaws@.*|registry.terraform.io/terraconstructs/tconsaws@~> $PROVIDER_VERSION|\" cdktf.json && rm -f cdktf.json.bak",
           "name": "Update provider version in cdktf.json"
         },
         {
@@ -310,9 +350,6 @@
         },
         {
           "spawn": "compile"
-        },
-        {
-          "exec": "echo 'Provider version updated to $PROVIDER_VERSION and bindings regenerated'"
         }
       ]
     },
@@ -324,16 +361,46 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,jest,jsii-diff,jsii-pacmak,projen,ts-jest,ts-node,typescript"
+          "execArgs": [
+            "pnpm",
+            "dlx",
+            "npm-check-updates@20",
+            "--upgrade",
+            "--target=minor",
+            "--peer",
+            "--no-deprecated",
+            "--dep=dev,prod,peer,optional",
+            "--filter=@types/jest,jest,jsii-diff,jsii-pacmak,ts-jest,ts-node"
+          ]
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/jest @types/node cdktf commit-and-tag-version constructs jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii projen ts-jest ts-node typescript"
+          "execArgs": [
+            "pnpm",
+            "update",
+            "@types/jest",
+            "@types/node",
+            "cdktn-cli",
+            "cdktn",
+            "commit-and-tag-version",
+            "constructs",
+            "jest",
+            "jest-junit",
+            "jsii-diff",
+            "jsii-docgen",
+            "jsii-pacmak",
+            "jsii-rosetta",
+            "jsii",
+            "projen",
+            "ts-jest",
+            "ts-node",
+            "typescript"
+          ]
         },
         {
-          "exec": "npx projen"
+          "exec": "pnpm exec projen"
         },
         {
           "spawn": "post-upgrade"
@@ -350,8 +417,5 @@
       ]
     }
   },
-  "env": {
-    "PATH": "$(pnpm -c exec \"node --print process.env.PATH\")"
-  },
-  "//": "~~ Generated by projen. To modify, edit .projenrc.ts and run \"npx projen\"."
+  "//": "~~ Generated by projen. To modify, edit .projenrc.ts and run \"pnpm exec projen\"."
 }

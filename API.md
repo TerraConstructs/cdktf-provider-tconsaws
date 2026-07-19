@@ -51,6 +51,7 @@ Must be unique amongst siblings in the same scope
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
@@ -88,6 +89,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@tcons/provider-tconsaws.signal.Signal.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@tcons/provider-tconsaws.signal.Signal.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addOverride` <a name="addOverride" id="@tcons/provider-tconsaws.signal.Signal.addOverride"></a>
 
@@ -295,7 +317,7 @@ public importFrom(id: string, provider?: TerraformProvider): void
 
 ###### `provider`<sup>Optional</sup> <a name="provider" id="@tcons/provider-tconsaws.signal.Signal.importFrom.parameter.provider"></a>
 
-- *Type:* cdktf.TerraformProvider
+- *Type:* cdktn.TerraformProvider
 
 ---
 
@@ -412,7 +434,7 @@ public resetTriggers(): void
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.isTerraformElement">isTerraformElement</a></code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.isTerraformResource">isTerraformResource</a></code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.generateConfigForImport">generateConfigForImport</a></code> | Generates CDKTF code for importing a Signal resource upon running "cdktf plan <stack-name>". |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.generateConfigForImport">generateConfigForImport</a></code> | Generates CDKTN code for importing a Signal resource upon running "cdktn plan <stack-name>". |
 
 ---
 
@@ -484,7 +506,7 @@ import { signal } from '@tcons/provider-tconsaws'
 signal.Signal.generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: TerraformProvider)
 ```
 
-Generates CDKTF code for importing a Signal resource upon running "cdktf plan <stack-name>".
+Generates CDKTN code for importing a Signal resource upon running "cdktn plan <stack-name>".
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@tcons/provider-tconsaws.signal.Signal.generateConfigForImport.parameter.scope"></a>
 
@@ -514,7 +536,7 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 
 ###### `provider`<sup>Optional</sup> <a name="provider" id="@tcons/provider-tconsaws.signal.Signal.generateConfigForImport.parameter.provider"></a>
 
-- *Type:* cdktf.TerraformProvider
+- *Type:* cdktn.TerraformProvider
 
 ? Optional instance of the provider where the Signal to import is found.
 
@@ -525,20 +547,20 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.cdktfStack">cdktfStack</a></code> | <code>cdktf.TerraformStack</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.cdktfStack">cdktfStack</a></code> | <code>cdktn.TerraformStack</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.fqn">fqn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.friendlyUniqueId">friendlyUniqueId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.terraformMetaArguments">terraformMetaArguments</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.terraformResourceType">terraformResourceType</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktn.TerraformProviderGeneratorMetadata</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.connection">connection</a></code> | <code>cdktn.SSHProvisionerConnection \| cdktn.WinrmProvisionerConnection</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.count">count</a></code> | <code>number \| cdktn.TerraformCount</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.dependsOn">dependsOn</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.provisioners">provisioners</a></code> | <code>cdktf.FileProvisioner \| cdktf.LocalExecProvisioner \| cdktf.RemoteExecProvisioner[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.failureReceived">failureReceived</a></code> | <code>cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.forEach">forEach</a></code> | <code>cdktn.ITerraformIterator</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.lifecycle">lifecycle</a></code> | <code>cdktn.TerraformResourceLifecycle</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.provider">provider</a></code> | <code>cdktn.TerraformProvider</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.provisioners">provisioners</a></code> | <code>cdktn.FileProvisioner \| cdktn.LocalExecProvisioner \| cdktn.RemoteExecProvisioner[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.failureReceived">failureReceived</a></code> | <code>cdktn.IResolvable</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.id">id</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.instanceIds">instanceIds</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.successCount">successCount</a></code> | <code>number</code> | *No description.* |
@@ -548,7 +570,7 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.queueUrlInput">queueUrlInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.retriesInput">retriesInput</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.signalIdInput">signalIdInput</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.timeoutsInput">timeoutsInput</a></code> | <code>@tcons/provider-tconsaws.signal.SignalTimeouts \| cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.timeoutsInput">timeoutsInput</a></code> | <code>@tcons/provider-tconsaws.signal.SignalTimeouts \| cdktn.IResolvable</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.triggersInput">triggersInput</a></code> | <code>{[ key: string ]: string}</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.expectedCount">expectedCount</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.Signal.property.publishTimeout">publishTimeout</a></code> | <code>string</code> | *No description.* |
@@ -577,7 +599,7 @@ The tree node.
 public readonly cdktfStack: TerraformStack;
 ```
 
-- *Type:* cdktf.TerraformStack
+- *Type:* cdktn.TerraformStack
 
 ---
 
@@ -627,7 +649,7 @@ public readonly terraformResourceType: string;
 public readonly terraformGeneratorMetadata: TerraformProviderGeneratorMetadata;
 ```
 
-- *Type:* cdktf.TerraformProviderGeneratorMetadata
+- *Type:* cdktn.TerraformProviderGeneratorMetadata
 
 ---
 
@@ -637,7 +659,7 @@ public readonly terraformGeneratorMetadata: TerraformProviderGeneratorMetadata;
 public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnection;
 ```
 
-- *Type:* cdktf.SSHProvisionerConnection | cdktf.WinrmProvisionerConnection
+- *Type:* cdktn.SSHProvisionerConnection | cdktn.WinrmProvisionerConnection
 
 ---
 
@@ -647,7 +669,7 @@ public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnectio
 public readonly count: number | TerraformCount;
 ```
 
-- *Type:* number | cdktf.TerraformCount
+- *Type:* number | cdktn.TerraformCount
 
 ---
 
@@ -667,7 +689,7 @@ public readonly dependsOn: string[];
 public readonly forEach: ITerraformIterator;
 ```
 
-- *Type:* cdktf.ITerraformIterator
+- *Type:* cdktn.ITerraformIterator
 
 ---
 
@@ -677,7 +699,7 @@ public readonly forEach: ITerraformIterator;
 public readonly lifecycle: TerraformResourceLifecycle;
 ```
 
-- *Type:* cdktf.TerraformResourceLifecycle
+- *Type:* cdktn.TerraformResourceLifecycle
 
 ---
 
@@ -687,7 +709,7 @@ public readonly lifecycle: TerraformResourceLifecycle;
 public readonly provider: TerraformProvider;
 ```
 
-- *Type:* cdktf.TerraformProvider
+- *Type:* cdktn.TerraformProvider
 
 ---
 
@@ -697,7 +719,7 @@ public readonly provider: TerraformProvider;
 public readonly provisioners: FileProvisioner | LocalExecProvisioner | RemoteExecProvisioner[];
 ```
 
-- *Type:* cdktf.FileProvisioner | cdktf.LocalExecProvisioner | cdktf.RemoteExecProvisioner[]
+- *Type:* cdktn.FileProvisioner | cdktn.LocalExecProvisioner | cdktn.RemoteExecProvisioner[]
 
 ---
 
@@ -707,7 +729,7 @@ public readonly provisioners: FileProvisioner | LocalExecProvisioner | RemoteExe
 public readonly failureReceived: IResolvable;
 ```
 
-- *Type:* cdktf.IResolvable
+- *Type:* cdktn.IResolvable
 
 ---
 
@@ -807,7 +829,7 @@ public readonly signalIdInput: string;
 public readonly timeoutsInput: SignalTimeouts | IResolvable;
 ```
 
-- *Type:* @tcons/provider-tconsaws.signal.SignalTimeouts | cdktf.IResolvable
+- *Type:* @tcons/provider-tconsaws.signal.SignalTimeouts | cdktn.IResolvable
 
 ---
 
@@ -948,6 +970,7 @@ Must be unique amongst siblings in the same scope
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
@@ -978,6 +1001,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="@tcons/provider-tconsaws.provider.TconsawsProvider.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="@tcons/provider-tconsaws.provider.TconsawsProvider.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `addOverride` <a name="addOverride" id="@tcons/provider-tconsaws.provider.TconsawsProvider.addOverride"></a>
 
@@ -1132,7 +1176,7 @@ public resetToken(): void
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.isTerraformElement">isTerraformElement</a></code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.isTerraformProvider">isTerraformProvider</a></code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.generateConfigForImport">generateConfigForImport</a></code> | Generates CDKTF code for importing a TconsawsProvider resource upon running "cdktf plan <stack-name>". |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.generateConfigForImport">generateConfigForImport</a></code> | Generates CDKTN code for importing a TconsawsProvider resource upon running "cdktn plan <stack-name>". |
 
 ---
 
@@ -1204,7 +1248,7 @@ import { provider } from '@tcons/provider-tconsaws'
 provider.TconsawsProvider.generateConfigForImport(scope: Construct, importToId: string, importFromId: string, provider?: TerraformProvider)
 ```
 
-Generates CDKTF code for importing a TconsawsProvider resource upon running "cdktf plan <stack-name>".
+Generates CDKTN code for importing a TconsawsProvider resource upon running "cdktn plan <stack-name>".
 
 ###### `scope`<sup>Required</sup> <a name="scope" id="@tcons/provider-tconsaws.provider.TconsawsProvider.generateConfigForImport.parameter.scope"></a>
 
@@ -1234,7 +1278,7 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 
 ###### `provider`<sup>Optional</sup> <a name="provider" id="@tcons/provider-tconsaws.provider.TconsawsProvider.generateConfigForImport.parameter.provider"></a>
 
-- *Type:* cdktf.TerraformProvider
+- *Type:* cdktn.TerraformProvider
 
 ? Optional instance of the provider where the TconsawsProvider to import is found.
 
@@ -1245,19 +1289,19 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.cdktfStack">cdktfStack</a></code> | <code>cdktf.TerraformStack</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.cdktfStack">cdktfStack</a></code> | <code>cdktn.TerraformStack</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.fqn">fqn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.friendlyUniqueId">friendlyUniqueId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.metaAttributes">metaAttributes</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.terraformResourceType">terraformResourceType</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktn.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.terraformProviderSource">terraformProviderSource</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.alias">alias</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.accessKeyInput">accessKeyInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.aliasInput">aliasInput</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRoleInput">assumeRoleInput</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRoleWithWebIdentityInput">assumeRoleWithWebIdentityInput</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.endpointsInput">endpointsInput</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRoleInput">assumeRoleInput</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRoleWithWebIdentityInput">assumeRoleWithWebIdentityInput</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.endpointsInput">endpointsInput</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.maxRetriesInput">maxRetriesInput</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.profileInput">profileInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.regionInput">regionInput</a></code> | <code>string</code> | *No description.* |
@@ -1265,12 +1309,12 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.secretKeyInput">secretKeyInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.sharedConfigFilesInput">sharedConfigFilesInput</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.sharedCredentialsFilesInput">sharedCredentialsFilesInput</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.skipMetadataApiCheckInput">skipMetadataApiCheckInput</a></code> | <code>boolean \| cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.skipMetadataApiCheckInput">skipMetadataApiCheckInput</a></code> | <code>boolean \| cdktn.IResolvable</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.tokenInput">tokenInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.accessKey">accessKey</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRole">assumeRole</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRoleWithWebIdentity">assumeRoleWithWebIdentity</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.endpoints">endpoints</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRole">assumeRole</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.assumeRoleWithWebIdentity">assumeRoleWithWebIdentity</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.endpoints">endpoints</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.maxRetries">maxRetries</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.profile">profile</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.region">region</a></code> | <code>string</code> | *No description.* |
@@ -1278,7 +1322,7 @@ Refer to the {@link https://registry.terraform.io/providers/terraconstructs/tcon
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.secretKey">secretKey</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.sharedConfigFiles">sharedConfigFiles</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.sharedCredentialsFiles">sharedCredentialsFiles</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.skipMetadataApiCheck">skipMetadataApiCheck</a></code> | <code>boolean \| cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.skipMetadataApiCheck">skipMetadataApiCheck</a></code> | <code>boolean \| cdktn.IResolvable</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProvider.property.token">token</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1301,7 +1345,7 @@ The tree node.
 public readonly cdktfStack: TerraformStack;
 ```
 
-- *Type:* cdktf.TerraformStack
+- *Type:* cdktn.TerraformStack
 
 ---
 
@@ -1351,7 +1395,7 @@ public readonly terraformResourceType: string;
 public readonly terraformGeneratorMetadata: TerraformProviderGeneratorMetadata;
 ```
 
-- *Type:* cdktf.TerraformProviderGeneratorMetadata
+- *Type:* cdktn.TerraformProviderGeneratorMetadata
 
 ---
 
@@ -1401,7 +1445,7 @@ public readonly aliasInput: string;
 public readonly assumeRoleInput: IResolvable | TconsawsProviderAssumeRole[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]
 
 ---
 
@@ -1411,7 +1455,7 @@ public readonly assumeRoleInput: IResolvable | TconsawsProviderAssumeRole[];
 public readonly assumeRoleWithWebIdentityInput: IResolvable | TconsawsProviderAssumeRoleWithWebIdentity[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]
 
 ---
 
@@ -1421,7 +1465,7 @@ public readonly assumeRoleWithWebIdentityInput: IResolvable | TconsawsProviderAs
 public readonly endpointsInput: IResolvable | TconsawsProviderEndpoints[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]
 
 ---
 
@@ -1501,7 +1545,7 @@ public readonly sharedCredentialsFilesInput: string[];
 public readonly skipMetadataApiCheckInput: boolean | IResolvable;
 ```
 
-- *Type:* boolean | cdktf.IResolvable
+- *Type:* boolean | cdktn.IResolvable
 
 ---
 
@@ -1531,7 +1575,7 @@ public readonly accessKey: string;
 public readonly assumeRole: IResolvable | TconsawsProviderAssumeRole[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]
 
 ---
 
@@ -1541,7 +1585,7 @@ public readonly assumeRole: IResolvable | TconsawsProviderAssumeRole[];
 public readonly assumeRoleWithWebIdentity: IResolvable | TconsawsProviderAssumeRoleWithWebIdentity[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]
 
 ---
 
@@ -1551,7 +1595,7 @@ public readonly assumeRoleWithWebIdentity: IResolvable | TconsawsProviderAssumeR
 public readonly endpoints: IResolvable | TconsawsProviderEndpoints[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]
 
 ---
 
@@ -1631,7 +1675,7 @@ public readonly sharedCredentialsFiles: string[];
 public readonly skipMetadataApiCheck: boolean | IResolvable;
 ```
 
-- *Type:* boolean | cdktf.IResolvable
+- *Type:* boolean | cdktn.IResolvable
 
 ---
 
@@ -1679,13 +1723,13 @@ const signalConfig: signal.SignalConfig = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.dependsOn">dependsOn</a></code> | <code>cdktf.ITerraformDependable[]</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.provisioners">provisioners</a></code> | <code>cdktf.FileProvisioner \| cdktf.LocalExecProvisioner \| cdktf.RemoteExecProvisioner[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.connection">connection</a></code> | <code>cdktn.SSHProvisionerConnection \| cdktn.WinrmProvisionerConnection</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.count">count</a></code> | <code>number \| cdktn.TerraformCount</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.dependsOn">dependsOn</a></code> | <code>cdktn.ITerraformDependable[]</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.forEach">forEach</a></code> | <code>cdktn.ITerraformIterator</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.lifecycle">lifecycle</a></code> | <code>cdktn.TerraformResourceLifecycle</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.provider">provider</a></code> | <code>cdktn.TerraformProvider</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.provisioners">provisioners</a></code> | <code>cdktn.FileProvisioner \| cdktn.LocalExecProvisioner \| cdktn.RemoteExecProvisioner[]</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.expectedCount">expectedCount</a></code> | <code>number</code> | Number of success signals required before considering the resource complete. |
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.queueUrl">queueUrl</a></code> | <code>string</code> | SQS queue URL or ARN where signals will be sent. |
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalConfig.property.signalId">signalId</a></code> | <code>string</code> | Unique identifier for this deployment/signal group. Messages must have this as a message attribute to be counted. |
@@ -1702,7 +1746,7 @@ const signalConfig: signal.SignalConfig = { ... }
 public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnection;
 ```
 
-- *Type:* cdktf.SSHProvisionerConnection | cdktf.WinrmProvisionerConnection
+- *Type:* cdktn.SSHProvisionerConnection | cdktn.WinrmProvisionerConnection
 
 ---
 
@@ -1712,7 +1756,7 @@ public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnectio
 public readonly count: number | TerraformCount;
 ```
 
-- *Type:* number | cdktf.TerraformCount
+- *Type:* number | cdktn.TerraformCount
 
 ---
 
@@ -1722,7 +1766,7 @@ public readonly count: number | TerraformCount;
 public readonly dependsOn: ITerraformDependable[];
 ```
 
-- *Type:* cdktf.ITerraformDependable[]
+- *Type:* cdktn.ITerraformDependable[]
 
 ---
 
@@ -1732,7 +1776,7 @@ public readonly dependsOn: ITerraformDependable[];
 public readonly forEach: ITerraformIterator;
 ```
 
-- *Type:* cdktf.ITerraformIterator
+- *Type:* cdktn.ITerraformIterator
 
 ---
 
@@ -1742,7 +1786,7 @@ public readonly forEach: ITerraformIterator;
 public readonly lifecycle: TerraformResourceLifecycle;
 ```
 
-- *Type:* cdktf.TerraformResourceLifecycle
+- *Type:* cdktn.TerraformResourceLifecycle
 
 ---
 
@@ -1752,7 +1796,7 @@ public readonly lifecycle: TerraformResourceLifecycle;
 public readonly provider: TerraformProvider;
 ```
 
-- *Type:* cdktf.TerraformProvider
+- *Type:* cdktn.TerraformProvider
 
 ---
 
@@ -1762,7 +1806,7 @@ public readonly provider: TerraformProvider;
 public readonly provisioners: FileProvisioner | LocalExecProvisioner | RemoteExecProvisioner[];
 ```
 
-- *Type:* cdktf.FileProvisioner | cdktf.LocalExecProvisioner | cdktf.RemoteExecProvisioner[]
+- *Type:* cdktn.FileProvisioner | cdktn.LocalExecProvisioner | cdktn.RemoteExecProvisioner[]
 
 ---
 
@@ -2209,9 +2253,9 @@ const tconsawsProviderConfig: provider.TconsawsProviderConfig = { ... }
 | --- | --- | --- |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.accessKey">accessKey</a></code> | <code>string</code> | AWS access key ID. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.alias">alias</a></code> | <code>string</code> | Alias name. |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.assumeRole">assumeRole</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]</code> | assume_role block. |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.assumeRoleWithWebIdentity">assumeRoleWithWebIdentity</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]</code> | assume_role_with_web_identity block. |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.endpoints">endpoints</a></code> | <code>cdktf.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]</code> | endpoints block. |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.assumeRole">assumeRole</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]</code> | assume_role block. |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.assumeRoleWithWebIdentity">assumeRoleWithWebIdentity</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]</code> | assume_role_with_web_identity block. |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.endpoints">endpoints</a></code> | <code>cdktn.IResolvable \| @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]</code> | endpoints block. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.maxRetries">maxRetries</a></code> | <code>number</code> | Maximum number of retries for AWS API calls. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.profile">profile</a></code> | <code>string</code> | AWS shared configuration profile name. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.region">region</a></code> | <code>string</code> | Default AWS region for resources. |
@@ -2219,7 +2263,7 @@ const tconsawsProviderConfig: provider.TconsawsProviderConfig = { ... }
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.secretKey">secretKey</a></code> | <code>string</code> | AWS secret access key. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.sharedConfigFiles">sharedConfigFiles</a></code> | <code>string[]</code> | List of paths to AWS shared configuration files. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.sharedCredentialsFiles">sharedCredentialsFiles</a></code> | <code>string[]</code> | List of paths to AWS shared credentials files. |
-| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.skipMetadataApiCheck">skipMetadataApiCheck</a></code> | <code>boolean \| cdktf.IResolvable</code> | Skip EC2 instance metadata service reachability check. |
+| <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.skipMetadataApiCheck">skipMetadataApiCheck</a></code> | <code>boolean \| cdktn.IResolvable</code> | Skip EC2 instance metadata service reachability check. |
 | <code><a href="#@tcons/provider-tconsaws.provider.TconsawsProviderConfig.property.token">token</a></code> | <code>string</code> | AWS session token. |
 
 ---
@@ -2258,7 +2302,7 @@ Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terra
 public readonly assumeRole: IResolvable | TconsawsProviderAssumeRole[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRole[]
 
 assume_role block.
 
@@ -2272,7 +2316,7 @@ Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terra
 public readonly assumeRoleWithWebIdentity: IResolvable | TconsawsProviderAssumeRoleWithWebIdentity[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderAssumeRoleWithWebIdentity[]
 
 assume_role_with_web_identity block.
 
@@ -2286,7 +2330,7 @@ Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terra
 public readonly endpoints: IResolvable | TconsawsProviderEndpoints[];
 ```
 
-- *Type:* cdktf.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]
+- *Type:* cdktn.IResolvable | @tcons/provider-tconsaws.provider.TconsawsProviderEndpoints[]
 
 endpoints block.
 
@@ -2398,7 +2442,7 @@ Docs at Terraform Registry: {@link https://registry.terraform.io/providers/terra
 public readonly skipMetadataApiCheck: boolean | IResolvable;
 ```
 
-- *Type:* boolean | cdktf.IResolvable
+- *Type:* boolean | cdktn.IResolvable
 
 Skip EC2 instance metadata service reachability check.
 
@@ -2466,14 +2510,14 @@ new signal.SignalTimeoutsOutputReference(terraformResource: IInterpolatingParent
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.Initializer.parameter.terraformResource">terraformResource</a></code> | <code>cdktf.IInterpolatingParent</code> | The parent resource. |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.Initializer.parameter.terraformResource">terraformResource</a></code> | <code>cdktn.IInterpolatingParent</code> | The parent resource. |
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.Initializer.parameter.terraformAttribute">terraformAttribute</a></code> | <code>string</code> | The attribute on the parent resource this class is referencing. |
 
 ---
 
 ##### `terraformResource`<sup>Required</sup> <a name="terraformResource" id="@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.Initializer.parameter.terraformResource"></a>
 
-- *Type:* cdktf.IInterpolatingParent
+- *Type:* cdktn.IInterpolatingParent
 
 The parent resource.
 
@@ -2645,7 +2689,7 @@ Produce the Token's value at resolution time.
 
 ###### `_context`<sup>Required</sup> <a name="_context" id="@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.resolve.parameter._context"></a>
 
-- *Type:* cdktf.IResolveContext
+- *Type:* cdktn.IResolveContext
 
 ---
 
@@ -2682,7 +2726,7 @@ public resetDelete(): void
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.property.deleteInput">deleteInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.property.create">create</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.property.delete">delete</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.property.internalValue">internalValue</a></code> | <code>@tcons/provider-tconsaws.signal.SignalTimeouts \| cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@tcons/provider-tconsaws.signal.SignalTimeoutsOutputReference.property.internalValue">internalValue</a></code> | <code>@tcons/provider-tconsaws.signal.SignalTimeouts \| cdktn.IResolvable</code> | *No description.* |
 
 ---
 
@@ -2756,7 +2800,7 @@ public readonly delete: string;
 public readonly internalValue: SignalTimeouts | IResolvable;
 ```
 
-- *Type:* @tcons/provider-tconsaws.signal.SignalTimeouts | cdktf.IResolvable
+- *Type:* @tcons/provider-tconsaws.signal.SignalTimeouts | cdktn.IResolvable
 
 ---
 

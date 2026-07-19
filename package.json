@@ -74,7 +74,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "9",
+      "version": "9.9.0",
       "onFail": "ignore"
     }
   },

@@ -4,6 +4,9 @@ import { cdk, github, javascript, ReleasableCommits } from "projen";
 // TerraConstructs/base and the cdktn-io prebuilt provider repos
 const cdktnVersion = "^0.23.0";
 const constructsVersion = "^10.6.0";
+// exact version: pnpm/action-setup@v5 requires its "version" input to agree
+// with the package.json "packageManager" field
+const pnpmVersion = "9.9.0";
 
 const project = new cdk.JsiiProject({
   author: "Vincent De Smet",
@@ -60,13 +63,13 @@ const project = new cdk.JsiiProject({
 
   // Package manager configuration
   packageManager: javascript.NodePackageManager.PNPM,
-  pnpmVersion: "9",
+  pnpmVersion,
   prettier: false,
   eslint: false,
 });
 
 // silence COREPACK_ENABLE_AUTO_PIN warning
-project.package.addField("packageManager", "pnpm@9.9.0");
+project.package.addField("packageManager", `pnpm@${pnpmVersion}`);
 
 // Regenerate provider bindings from the terraform provider (cdktn get reads
 // the provider constraint from cdktf.json - the config file name is unchanged
@@ -157,8 +160,8 @@ providerUpgrade.addJob("upgrade", {
     },
     {
       name: "Setup pnpm",
-      uses: "pnpm/action-setup@v3",
-      with: { version: "9" },
+      uses: "pnpm/action-setup@v5",
+      with: { version: pnpmVersion },
     },
     {
       name: "Install dependencies",
